@@ -6,7 +6,6 @@ public class Post {
     private int imageId;
     private int likesCount;
     private int likeImageId;
-    private static int likeCountStatus=0;
 
     public Post(int postId,String title, int imageId, int likesCount,int likeImageId) {
         this.postId=postId;
@@ -14,7 +13,7 @@ public class Post {
         this.imageId = imageId;
         this.likesCount = likesCount;
         this.likeImageId=likeImageId;
-        this.likeCountStatus=likeCountStatus;
+
     }
 
     public String getTitle() {
@@ -58,11 +57,5 @@ public class Post {
     }
 
 
-    public int getLikeCountStatus() {
-        return likeCountStatus;
-    }
 
-    public void setLikeCountStatus(int likeCountStatus) {
-        this.likeCountStatus = likeCountStatus;
-    }
 }
