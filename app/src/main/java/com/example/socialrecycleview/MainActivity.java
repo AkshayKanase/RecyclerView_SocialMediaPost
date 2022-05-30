@@ -15,13 +15,19 @@ public class MainActivity extends AppCompatActivity {
    private PostAdapter postAdapter;
    private ArrayList<Post> post;
    private  int[] imgPost;
+   private  Post posted;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getPosted();
         initData();
         initView();
+    }
+
+    public Post getPosted() {
+        return posted;
     }
 
     private void initView(){
@@ -40,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
 
        for(int i=0;i<=15;i++){
            post.add(
-                   new Post(i,"Travel Diary",imgPost[i],0,R.drawable.like4)
+                   new Post(i,"Travel Diary",imgPost[i], 0, R.drawable.like4)
+
            );
        }
 

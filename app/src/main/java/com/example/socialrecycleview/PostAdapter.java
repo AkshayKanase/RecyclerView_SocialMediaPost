@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder>{
     private ArrayList<Post> post;
 
+
     public PostAdapter(ArrayList<Post> post) {
         this.post=post;
     }
@@ -24,12 +25,24 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
          public TextView txtViewLikes;
          public ImageView imageViewLikeButton;
 
+
+
         public PostViewHolder(@NonNull View itemView) {
             super(itemView);
             txtViewTitle=itemView.findViewById(R.id.txtViewTitle);
             imageViewPost=itemView.findViewById(R.id.imageViewPost);
             txtViewLikes=itemView.findViewById(R.id.txtViewLikes);
             imageViewLikeButton=itemView.findViewById(R.id.imgViewLikeButton);
+
+            imageViewLikeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                   int likeCountStatus=Integer.parseInt(txtViewLikes.getText().toString());
+                    likeCountStatus++;
+                    txtViewLikes.setText(""+likeCountStatus);
+                }
+            });
         }
     }
 
@@ -51,6 +64,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
         holder.imageViewLikeButton.setImageResource(posts.getLikeImageId());
 
 
+
       /*  holder.txtViewLikes.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -60,7 +74,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
                         holder.txtViewLikes.setText(""+likes);
                     }
                 }
-        ); */
+        );
 
         holder.imageViewLikeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +85,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
                     holder.txtViewLikes.setText(""+likes);
 
             }
-        });
+        });*/
     }
 
     @Override
